@@ -1,0 +1,53 @@
+import java.util.Scanner;
+
+public class Vowels {
+  public static void main(String[] args) {
+    Scanner sc = new Scanner(System.in);
+    
+    String str = sc.nextLine();
+    int vowelA, vowelE, vowelI, vowelO, vowelU;
+    int charSpace, charPunct, charConso;
+    
+    for (int i = 0; i < str.length(); i++) {
+      
+      if (str.charAt(i) == 'a') {
+        vowelA++;
+      } else if (str.charAt(i) == 'e') {
+        vowelE++;
+      } else if (str.charAt(i) == 'i') {
+        vowelI++;
+      } else if (str.charAt(i) == 'o') {
+        vowelO++;
+      } else if (str.charAt(i) == 'u') {
+        vowelU++;
+      } else if (str.charAt(i) == ' ') {
+        charSpace++;
+      } else if (str.charAt(i) == '.') {
+        charPunct++;
+      } else if (str.charAt(i) == '!') {
+        charPunct++;
+      } else if (str.charAt(i) == ';') {
+        charPunct++;
+      } else if (str.charAt(i) == ',') {
+        charPunct++;
+      } else if (str.charAt(i) == '\'') {
+        charPunct++;
+      } else if (str.charAt(i) == '?') {
+        charPunct++;
+      } else if (str.charAt(i) == ':') {
+        charPunct++;
+      } else if (str.charAt(i) == '\"') {
+        charPunct++;
+      } else {
+        charConso++
+      }
+      
+    }
+    
+    System.out.println("The string \"" + str + "\" contains " + vowelA + " letter \'a\', " +
+                       vowelE + " letter \'e\', " + vowelI + " letter \'i\', " + vowelO + " letter \'o\', " + 
+                       vowelU + " letter \'u\', " + " and has " + charSpace + " space characters, " + charPunct +
+                       " punctuation marks, and " + charConst + " consonants!");
+    
+  }
+}
