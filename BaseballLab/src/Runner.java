@@ -19,13 +19,18 @@ public class Runner {
         Player tony   = new Player("Tony",     "outfield",     .140);
         Player rachel = new Player("Rachel",   "third base",   .313);
 
-        // Make an ArrayList of players
+        // Make ArrayLists of players
         ArrayList<Player> team1 = new ArrayList<> ( Arrays.asList
                 (galen, nish, pam, logan, ben, eric, mike, tanta, tony, rachel)
         );
+        ArrayList<Player> team2 = new ArrayList<> ( Arrays.asList
+                (nish, galen, logan, pam, ben, mike, eric, tanta, tony, rachel)
+        );
 
-        // Make a team
+        // Make teams
         Team winrars = new Team (team1);
+        Team losars  = new Team (team2);
+        Team copies = new Team (team1);
 
         // Tests
 //        System.out.println( "Player \t Position \t\t Batting Percentage \n");
@@ -35,6 +40,12 @@ public class Runner {
 //
 //        System.out.println( "The player at position 3 is: " + winrars.getPlayer(3) );
 
-        System.out.println( "Team winrar sorted by batting average is: " + winrars.sortByBattingAvg() + winrars.toString() );
+        System.out.println( "Team winrar sorted by batting average is: \n" + winrars.sortByBattingAvg().toString() );
+
+        System.out.println( "The player with the highest batting average is " + winrars.highestBattingAvg() );
+        System.out.println( "The player with the lowest batting average is " + winrars.lowestBattingAvg() );
+
+        System.out.println( "The teams losars and winrars are the same: " + winrars.equals(losars) );
+        System.out.println( "The teams losars and copies are the same: " + winrars.equals(copies) );
     }
 }

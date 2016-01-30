@@ -2,16 +2,12 @@
  * Created by 2000023268 on 1/26/2016.
  */
 import java.util.ArrayList;
-import java.util.Arrays;
 
 public class Team {
     // Instance variables
     private ArrayList<Player> team = new ArrayList<Player> ();
 
     // Constructors
-    public Team () {
-    }
-
     public Team (ArrayList<Player> players) {
         for (Player p : players) {
             team.add(p);
@@ -40,10 +36,10 @@ public class Team {
     }
 
     // equals
-    public boolean equals(ArrayList<Team> team1, ArrayList<Team> team2) {
+    public boolean equals(Team compared) {
         boolean isEqual = true;
-        for (int i = 0; i < team1.size(); i++) {
-            if ( team1.get(i) != team2.get(i) ) {
+        for (int i = 0; i < team.size(); i++) {
+            if ( this.getPlayer(i) != compared.getPlayer(i) ) {
                 isEqual = false;
                 break;
             }
@@ -62,51 +58,62 @@ public class Team {
     }
 
     // highestBattingAvg
-    public double highestBattingAvg() {
+    public String highestBattingAvg() {
         double highest = 0.0;
+        Player p = null;
+
         for (Player player : team) {
-            if (player.getBattingPercent() > highest)
+            if (player.getBattingPercent() > highest) {
                 highest = player.getBattingPercent();
+                p = player;
+            }
         }
-        return highest;
+        return p.getName() + " with a batting percentage of " + p.getBattingPercent();
     }
 
     // lowestBattingAvg
-    public double lowestBattingAvg() {
+    public String lowestBattingAvg() {
         double lowest = 1.0;
+        Player p = null;
+
         for (Player player : team) {
-            if (player.getBattingPercent() < lowest)
+            if (player.getBattingPercent() < lowest) {
                 lowest = player.getBattingPercent();
+                p = player;
+            }
         }
-        return lowest;
+        return p.getName() + " with a batting percentage of " + p.getBattingPercent();
     }
 
     // sortByBattingAvg
-    public ArrayList<Player> sortByBattingAvg() {
-        Team sortedTeam = Team ();
+    public Team sortByBattingAvg() {
+        // Make a deep copy of the ArrayList team so that the original stays unmodified
+        ArrayList<Player> sorted = new ArrayList<Player> ();
+        sorted.addAll(team);
+
         int length = team.size();
         boolean swapped = true;
         Player temp;
 
+        // Bubble sort
         while (swapped) {
             swapped = false;
             for (int i = 0; i < length-1; i++) {
-                if ( team.get(i).getBattingPercent() > team.get(i+1).getBattingPercent() ) {
-                    temp = team.get(i+1);
-                    team.set( i+1,team.get(i) );
-                    team.set(i, temp);
+                if ( sorted.get(i).getBattingPercent() > sorted.get(i+1).getBattingPercent() ) {
+                    // Swap the places of the two players
+                    temp = sorted.get(i+1);
+                    sorted.set( i+1,sorted.get(i) );
+                    sorted.set(i, temp);
 
-                    sortedTeam.add( team.get(i) );
-
+                    // If a swap occured, then the while loop will continue
                     swapped = true;
                 }
-
-                //sortedTeam.add( team.get(i) );
             }
+            // Increases the efficiency of the loop since the furthest elements are properly sorted
             length--;
         }
 
-        return sortedTeam;
+        return new Team(sorted);
     }
 
     // overallBattingAvg
