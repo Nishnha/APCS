@@ -2,6 +2,7 @@
  * Created by 2000023268 on 1/26/2016.
  */
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public class Team {
     // Instance variables
@@ -15,8 +16,8 @@ public class Team {
     }
 
     // Accessors
-    public Player getPlayer(int player) {
-        return team.get(player);
+    public String getPlayer(int player) {
+        return team.get(player).getName();
     }
 
     // Mutators
@@ -117,8 +118,36 @@ public class Team {
     }
 
     // overallBattingAvg
+    public double overallBattingAvg() {
+        double totalBatting = 0.0;
+        int numPlayers = team.size();
+
+        for (Player p : team) {
+            totalBatting += p.getBattingPercent();
+        }
+
+        return totalBatting / numPlayers;
+    }
 
     // isPlayer
+    public boolean isPlayer(String name) {
+        boolean isPlayer = false;
+        for (Player p : team) {
+            if ( p.getName().equals(name) )
+                isPlayer = true;
+        }
+        return isPlayer;
+    }
 
-    // allPos
+    // allPosDiffer
+    public boolean allPosDiffer() {
+        HashSet<String> positions = new HashSet<String> ();
+
+        // Adds each position to a hashset, if the position is already added, returns false
+        for (Player p : team) {
+            if ( positions.add(p.getPosition()) == false )
+                return false;
+        }
+        return true;
+    }
 }

@@ -2,14 +2,14 @@
  * Created by 2000023268 on 1/26/2016.
  */
 public class Player {
-    // instantiation variables
+    // instance variables
     private String name, position;
     private double battingPercent;
 
-    // Default constructor
+    // Default constructors
     public Player() {
-        name = null;
-        position = null;
+        name = "newbie";
+        position = "bench";
         battingPercent = 0.0;
     }
 
@@ -48,6 +48,6 @@ public class Player {
     // toString
     @Override
     public String toString() {
-        return this.name + ", \t" + this.position + ", \t\t" + this.battingPercent + ";";
+        return this.name + ", \t\t" + this.position + ", \t\t" + this.battingPercent + ";";
     }
 }
