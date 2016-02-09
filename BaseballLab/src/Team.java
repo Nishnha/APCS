@@ -1,5 +1,8 @@
 /**
- * Created by 2000023268 on 1/26/2016.
+ * Created by Nishant Sinha on 1/26/2016.
+ * Bubble sort information found on https://en.wikipedia.org/wiki/Bubble_sort
+ *
+ * Class to create a team consisting of players
  */
 import java.util.ArrayList;
 import java.util.HashSet;
@@ -9,25 +12,25 @@ public class Team {
     private ArrayList<Player> team = new ArrayList<Player> ();
 
     // Constructors
-    public Team (ArrayList<Player> players) {
+    public Team (ArrayList<Player> players) {  // Deep copies the players of the entered array
         for (Player p : players) {
             team.add(p);
         }
     }
 
     // Accessors
-    public String getPlayer(int player) {
+    public String getPlayer(int player) {  // Get a player's name given their index in the team
         return team.get(player).getName();
     }
 
     // Mutators
-    public void setPlayer(int pos, Player player) {
+    public void setPlayer(int pos, Player player) {  // Used to replace a player on the team
         team.set(pos, player);
     }
 
     // toString
     @Override
-    public String toString() {
+    public String toString() {  // Returns the players on a team in a formatted string
         StringBuilder listOfPlayers = new StringBuilder();
         for (Player p : team) {
             listOfPlayers.append(p);
@@ -37,7 +40,7 @@ public class Team {
     }
 
     // equals
-    public boolean equals(Team compared) {
+    public boolean equals(Team compared) { // Check if two teams are equal
         boolean isEqual = true;
         for (int i = 0; i < team.size(); i++) {
             if ( this.getPlayer(i) != compared.getPlayer(i) ) {
@@ -49,17 +52,16 @@ public class Team {
     }
 
     // hasPitcher
-    public boolean hasPitcher() {
-        boolean hasPitcher = false;
+    public boolean hasPitcher() {  // Check if a team has a pitcher
         for (Player p : team) {
             if ( p.getPosition().equals("pitcher") )
-                hasPitcher = true;
+                return true;
         }
-        return hasPitcher;
+        return false;
     }
 
     // highestBattingAvg
-    public String highestBattingAvg() {
+    public String highestBattingAvg() { // Returns the player with the highest batting average on a team
         double highest = 0.0;
         Player p = null;
 
@@ -73,7 +75,7 @@ public class Team {
     }
 
     // lowestBattingAvg
-    public String lowestBattingAvg() {
+    public String lowestBattingAvg() {  // Returns the player with the lowest batting average on a team
         double lowest = 1.0;
         Player p = null;
 
@@ -87,7 +89,7 @@ public class Team {
     }
 
     // sortByBattingAvg
-    public Team sortByBattingAvg() {
+    public Team sortByBattingAvg() { // Returns a copy of the team sorted by batting average
         // Make a deep copy of the ArrayList team so that the original stays unmodified
         ArrayList<Player> sorted = new ArrayList<Player> ();
         sorted.addAll(team);
@@ -118,7 +120,7 @@ public class Team {
     }
 
     // overallBattingAvg
-    public double overallBattingAvg() {
+    public double overallBattingAvg() {  // Returns the overall batting average of a team as a double
         double totalBatting = 0.0;
         int numPlayers = team.size();
 
@@ -130,7 +132,7 @@ public class Team {
     }
 
     // isPlayer
-    public boolean isPlayer(String name) {
+    public boolean isPlayer(String name) {  // Checks if a player is on a team by their name
         boolean isPlayer = false;
         for (Player p : team) {
             if ( p.getName().equals(name) )
@@ -140,7 +142,7 @@ public class Team {
     }
 
     // allPosDiffer
-    public boolean allPosDiffer() {
+    public boolean allPosDiffer() {  // Checks if all the positions of the players on a team are different
         HashSet<String> positions = new HashSet<String> ();
 
         // Adds each position to a hashset, if the position is already added, returns false

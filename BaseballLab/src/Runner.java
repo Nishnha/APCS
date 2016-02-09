@@ -2,7 +2,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 
 /**
- * Created by 2000023268 on 1/26/2016.
+ * Created by Nishant Sinha on 1/26/2016.
+ *
+ * Class to test all methods of the Player and Team classes
  */
 public class Runner {
     public static void main(String[] args) {
@@ -17,7 +19,7 @@ public class Runner {
         Player ben    = new Player("Ben",      "center field", .450);
         Player eric   = new Player("Eric",     "left field",   .230);
         Player tony   = new Player("Tony",     "outfield",     .140);
-        Player nish2  = new Player();
+        Player nish2  = new Player(); // nish2 given values later in the runner
 
         // Make ArrayLists of players
         ArrayList<Player> team1 = new ArrayList<> ( Arrays.asList
@@ -33,7 +35,6 @@ public class Runner {
         Team copies = new Team (team1);
 
         // Tests
-
         System.out.println( "Program made by Nishant Sinha");
         System.out.println( "\nTeam winrar consists of:");
         System.out.println( winrars.toString() );
