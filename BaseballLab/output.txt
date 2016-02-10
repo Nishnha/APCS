@@ -1,0 +1,49 @@
+Team winrar consists of:
+Galen, 		first base, 		0.22;
+Nish, 		pitcher, 		0.42;
+Whitlock, 		catcher, 		0.9;
+Logan, 		shortstop, 		0.003;
+Ben, 		center field, 		0.45;
+Eric, 		left field, 		0.23;
+Mike, 		second base, 		0.222;
+Tony, 		outfield, 		0.14;
+Rachel, 		third base, 		0.313;
+
+The teams losars and winrars are the same: false
+The teams losars and copies are the same: true
+
+Team winrar has a pitcher: true
+Set the position of nish to shortstop
+Team winrar has a pitcher: false
+
+Replace nish with nish2
+The player at position 1 is: newbie
+
+Set values for nish2
+Nish2, 		pitcher, 		0.42;
+
+Team winrar sorted by batting average is: 
+Logan, 		shortstop, 		0.003;
+Tony, 		outfield, 		0.14;
+Galen, 		first base, 		0.22;
+Mike, 		second base, 		0.222;
+Eric, 		left field, 		0.23;
+Rachel, 		third base, 		0.313;
+Nish2, 		pitcher, 		0.42;
+Ben, 		center field, 		0.45;
+Whitlock, 		catcher, 		0.9;
+
+
+The player with the highest batting average is Whitlock with a batting percentage of 0.9
+The player with the lowest batting average is Logan with a batting percentage of 0.003
+
+The overall batting average for team winrar is: 0.322
+
+Pam is a player on team winrar: false
+Whitlock is a player on team winrar: true
+
+All positions on team winrar differ: true
+Set the position of galen to catcher.
+All positions on team winrar differ: false
+
+Process finished with exit code 0
